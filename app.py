@@ -156,7 +156,7 @@ with col1:
         if gender == "Male":
             # Online Problems Solved (Text Field)
             user_input['Online Problems Solved'] = map_online_problem_solved(int(st.text_input("Online Problems Solved", "0")))
-            
+
             # STL Skill, Data Structure Knowledge, Algorithm Knowledge, etc.
             user_input['STL Skill'] = map_stl_skills(st.selectbox("STL Skill", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
             user_input['Data Structure Knowledge'] = map_stl_skills(st.selectbox("Data Structure Knowledge", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
@@ -164,7 +164,7 @@ with col1:
             user_input['Weekly Programming Practice'] = map_stl_skills(st.selectbox("Weekly Programming Practice", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
             user_input['C Programming Skill'] = map_stl_skills(st.selectbox("C Programming Skill", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
             user_input['OOP Skill'] = map_stl_skills(st.selectbox("OOP Skill", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
-            
+
             # Problem Solving Capability, Debugging Skills, etc.
             user_input['Problem Solving Capability'] = map_problem_solving(st.selectbox("Problem Solving Capability", ["Poor", "Average", "Good", "Very Good", "Excellent"]))
             user_input['Debugging Skills'] = map_problem_solving(st.selectbox("Debugging Skills", ["Poor", "Average", "Good", "Very Good", "Excellent"]))
@@ -172,16 +172,20 @@ with col1:
             user_input['Complexity Analysis Capability'] = map_problem_solving(st.selectbox("Complexity Analysis Capability", ["Poor", "Average", "Good", "Very Good", "Excellent"]))
             user_input['Critical Thinking Level'] = map_problem_solving(st.selectbox("Critical Thinking Level", ["Poor", "Average", "Good", "Very Good", "Excellent"]))
             user_input['Creative Thinking Level'] = map_problem_solving(st.selectbox("Creative Thinking Level", ["Poor", "Average", "Good", "Very Good", "Excellent"]))
-            
+
             # Solved per Onsite, Onsite Contest Participation (Text Fields)
             user_input['Solved per Onsite'] = map_solved_per_onsite(int(st.text_input("Solved per Onsite", "0")))
             user_input['Onsite Contest Participation'] = map_onsite_participation(int(st.text_input("Onsite Contest Participation", "0")))
 
-        # **Female Input**: Includes weekly study time and library time.
+        # **Female Input**: Move weekly study time and library time to the top.
         if gender == "Female":
+            # Weekly Study Hours and Library Time (Text Fields) - At the top
+            user_input['Weekly Study Time'] = map_weekly_study_hours(int(st.text_input("Weekly Study Time (Hours)", "0")))
+            user_input['Weekly Library Time'] = map_weekly_library_visit(int(st.text_input("Weekly Library Time (Hours)", "0")))
+
             # Online Problems Solved (Text Field)
             user_input['Online Problems Solved'] = map_online_problem_solved(int(st.text_input("Online Problems Solved", "0")))
-            
+
             # STL Skill, Data Structure Knowledge, Algorithm Knowledge, etc.
             user_input['STL Skill'] = map_stl_skills(st.selectbox("STL Skill", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
             user_input['Data Structure Knowledge'] = map_stl_skills(st.selectbox("Data Structure Knowledge", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
@@ -189,7 +193,7 @@ with col1:
             user_input['Weekly Programming Practice'] = map_stl_skills(st.selectbox("Weekly Programming Practice", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
             user_input['C Programming Skill'] = map_stl_skills(st.selectbox("C Programming Skill", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
             user_input['OOP Skill'] = map_stl_skills(st.selectbox("OOP Skill", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
-            
+
             # Problem Solving Capability, Debugging Skills, etc.
             user_input['Problem Solving Capability'] = map_problem_solving(st.selectbox("Problem Solving Capability", ["Poor", "Average", "Good", "Very Good", "Excellent"]))
             user_input['Debugging Skills'] = map_problem_solving(st.selectbox("Debugging Skills", ["Poor", "Average", "Good", "Very Good", "Excellent"]))
@@ -197,14 +201,10 @@ with col1:
             user_input['Complexity Analysis Capability'] = map_problem_solving(st.selectbox("Complexity Analysis Capability", ["Poor", "Average", "Good", "Very Good", "Excellent"]))
             user_input['Critical Thinking Level'] = map_problem_solving(st.selectbox("Critical Thinking Level", ["Poor", "Average", "Good", "Very Good", "Excellent"]))
             user_input['Creative Thinking Level'] = map_problem_solving(st.selectbox("Creative Thinking Level", ["Poor", "Average", "Good", "Very Good", "Excellent"]))
-            
+
             # Solved per Onsite, Onsite Contest Participation (Text Fields)
             user_input['Solved per Onsite'] = map_solved_per_onsite(int(st.text_input("Solved per Onsite", "0")))
             user_input['Onsite Contest Participation'] = map_onsite_participation(int(st.text_input("Onsite Contest Participation", "0")))
-            
-            # Weekly Study Hours, Weekly Library Visit Time (Text Fields)
-            user_input['Weekly Study Time'] = map_weekly_study_hours(int(st.text_input("Weekly Study Time (Hours)", "0")))
-            user_input['Weekly Library Time'] = map_weekly_library_visit(int(st.text_input("Weekly Library Time (Hours)", "0")))
 
             # Learning From Mistakes (New Mapping)
             user_input['Learning From mistakes'] = map_learning_from_mistakes(st.selectbox("Learning From Mistakes", ["Never", "Rarely", "Sometimes", "Often", "Always"]))
