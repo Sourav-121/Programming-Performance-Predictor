@@ -1,9 +1,8 @@
-joblib==1.5.3
-numpy==2.4.2
-scikit-learn==1.7.2
-scipy==1.17.0
-threadpoolctl==3.6.0
-shap==0.39.0  # Add this line
-pandas==1.3.0  # Add pandas (if you are using pandas)
-streamlit==1.14.0  # Ensure streamlit is added
-plotly==5.10.0  # If you are using plotly for visualizations
+streamlit
+pandas
+joblib
+scikit-learn
+shap
+plotly
+numpy
+matplotlib
