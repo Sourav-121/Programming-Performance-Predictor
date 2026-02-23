@@ -41,8 +41,7 @@ with st.sidebar:
     st.header("⚙️ Configuration")
     gender = st.radio("Select Student Gender", ["Male", "Female"])
     st.info(f"Analysis Mode: **{gender} Students**")
-    if gender == "Female":
-        st.caption("Includes: Weekly Study Time & Library Time")
+    
     
     st.divider()
     st.write("Developed for EDM Research.")
@@ -316,4 +315,5 @@ else:
     with col2:
         st.info("Please enter student data on the left to generate the analysis.")
         st.image("https://cdn-icons-png.flaticon.com/512/3079/3079165.png", width=150)
+
 
