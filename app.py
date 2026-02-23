@@ -16,7 +16,7 @@ def st_shap(plot, height=None):
     components.html(shap_html, height=height if height else 400, scrolling=True)
 
 # --- Title & Styling ---
-st.title("🎓 Intelligent Student Performance Predictor")
+st.title("Student Programming Performance Predictor")
 st.markdown("""
 <style>
     .stApp {background-color: #f8f9fa;}
@@ -56,7 +56,7 @@ try:
         model = joblib.load("female_shap_model.pkl")
         features = joblib.load("female_shap_features.pkl")
 except FileNotFoundError:
-    st.error("⚠️ Model files missing! Please run 'train_model_shap.py' first.")
+    st.error("Model files missing! Please run 'train_model_shap.py' first.")
     st.stop()
 
 # --- Conversion Functions ---
@@ -148,11 +148,11 @@ col1, col2 = st.columns([1, 2], gap="large")
 
 # --- Column 1: Input Form ---
 with col1:
-    st.subheader("📝 Student Data Input")
+    st.subheader("Student Data Input")
     with st.form("input_form"):
         user_input = {}
 
-        # **Male Input**: Does NOT include weekly study time and library time.
+       
         if gender == "Male":
             # Online Problems Solved (Text Field)
             user_input['Online Problems Solved'] = map_online_problem_solved(int(st.text_input("Online Problems Solved", "0")))
@@ -242,7 +242,7 @@ if submit:
 
     with col2:
         # --- 1. Prediction Card (Top) ---
-        st.subheader("📊 Analysis Report")
+        st.subheader("Analysis Report")
         st.markdown(f"""
         <div class="prediction-card" style="background-color: {pred_color}25; border: 2px solid {pred_color};">
             <h2 style="color: {pred_color}; margin:0;">{prediction}</h2>
@@ -251,7 +251,7 @@ if submit:
         """, unsafe_allow_html=True)
         
         # --- 2. Probability Bar Chart ---
-        st.markdown("##### 1️⃣ Model Confidence Distribution")
+        st.markdown("##### Model Confidence Distribution")
         prob_df = pd.DataFrame({'Category': classes, 'Probability': probs})
         fig_bar = px.bar(prob_df, x='Category', y='Probability', 
                          color='Category', text_auto='.1%',
@@ -260,7 +260,7 @@ if submit:
         st.plotly_chart(fig_bar, use_container_width=True)
             
         # --- 3. Skill Radar Chart ---
-        st.markdown("##### 2️⃣ Skill & Feature Profile (Radar View)")
+        st.markdown("##### Skill & Feature Profile (Radar View)")
         radar_vals = [min(v, 5) for k, v in user_input.items()]
         fig_radar = go.Figure()
         fig_radar.add_trace(go.Scatterpolar(
@@ -278,7 +278,7 @@ if submit:
         st.plotly_chart(fig_radar, use_container_width=True)
 
         # --- 4. SHAP Force Plot ---
-        st.markdown("##### 3️⃣ Feature Impact Analysis (SHAP)")
+        st.markdown("##### Feature Impact Analysis (SHAP)")
         st.caption("Red bars push the prediction towards the result, Blue bars push away.")
         
         # SHAP Calculation
@@ -314,5 +314,6 @@ if submit:
 else:
     # Initial State
     with col2:
-        st.info("👈 Please enter student data on the left to generate the analysis.")
+        st.info("Please enter student data on the left to generate the analysis.")
         st.image("https://cdn-icons-png.flaticon.com/512/3079/3079165.png", width=150)
+
