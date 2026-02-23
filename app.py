@@ -208,7 +208,7 @@ with col1:
             # Learning From Mistakes (New Mapping)
             user_input['Learning From mistakes'] = map_learning_from_mistakes(st.selectbox("Learning From Mistakes", ["Never", "Rarely", "Sometimes", "Often", "Always"]))
 
-        submit = st.form_submit_button("Analyze Performance 🚀", type="primary")
+        submit = st.form_submit_button("Analyze Performance", type="primary")
 
 # --- Column 2: Dashboard (Vertical Layout) ---
 if submit:
@@ -315,5 +315,6 @@ else:
     with col2:
         st.info("Please enter student data on the left to generate the analysis.")
         st.image("https://cdn-icons-png.flaticon.com/512/3079/3079165.png", width=150)
+
 
 
