@@ -128,7 +128,7 @@ def map_weekly_library_visit(value):
         return 5
 
 def map_weekly_practice(value):
-    mapping = {"Never": 1, "Rarely": 2, "Sometimes": 3, "Often": 4, "Always": 5}
+    mapping = {"Never (hardly ever practice)": 1, "Rarely (once a week)": 2, "Sometimes (2-3) days per week": 3, "often (4-5 days per week)": 4, "Always (daily or almost daily)": 5}
     return mapping.get(value, 3)  # Default to Sometimes if not found
 
 # --- Female Conversion Function for 'Learning From mistakes' ---
@@ -160,7 +160,7 @@ with col1:
             user_input['STL Skill'] = map_stl_skills(st.selectbox("STL Skill", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
             user_input['Data Structure Knowledge'] = map_stl_skills(st.selectbox("Data Structure Knowledge", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
             user_input['Algorithm Knowledge'] = map_stl_skills(st.selectbox("Algorithm Knowledge", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
-            user_input['Weekly Programming Practice'] = map_stl_skills(st.selectbox("Weekly Programming Practice", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
+            user_input['Weekly Programming Practice'] = map_weekly_practice(st.selectbox("Weekly Programming Practice", ["Never (hardly ever practice)", "Rarely (once a week)", "Sometimes (2-3) days per week", "often (4-5 days per week)", "Always (daily or almost daily)"]))
             user_input['C Programming Skill'] = map_stl_skills(st.selectbox("C Programming Skill", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
             user_input['OOP Skill'] = map_stl_skills(st.selectbox("OOP Skill", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
 
@@ -189,7 +189,7 @@ with col1:
             user_input['STL Skill'] = map_stl_skills(st.selectbox("STL Skill", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
             user_input['Data Structure Knowledge'] = map_stl_skills(st.selectbox("Data Structure Knowledge", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
             user_input['Algorithm Knowledge'] = map_stl_skills(st.selectbox("Algorithm Knowledge", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
-            user_input['Weekly Programming Practice'] = map_stl_skills(st.selectbox("Weekly Programming Practice", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
+            user_input['Weekly Programming Practice'] = map_weekly_practice(st.selectbox("Weekly Programming Practice", ["Never (hardly ever practice)", "Rarely (once a week)", "Sometimes (2-3) days per week", "often (4-5 days per week)", "Always (daily or almost daily)"]))
             user_input['C Programming Skill'] = map_stl_skills(st.selectbox("C Programming Skill", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
             user_input['OOP Skill'] = map_stl_skills(st.selectbox("OOP Skill", ["Very Poor", "Poor", "Average", "Good", "Excellent"]))
 
@@ -315,6 +315,7 @@ else:
     with col2:
         st.info("Please enter student data on the left to generate the analysis.")
         st.image("https://cdn-icons-png.flaticon.com/512/3079/3079165.png", width=150)
+
 
 
 
